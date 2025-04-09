@@ -175,4 +175,23 @@ footer {
     margin: 0;
     color: var(--color-white);
   }
+  @media (max-width: 768px) {
+    body {
+      font-size: 1.2rem;
+    }
+    img {
+      height: 300px;
+      width: 100%;
+    }
+    #questionText {
+      font-size: 2rem;
+    }
+    .answerButton {
+      font-size: 1.2rem;
+      padding: 15px 30px;
+    }
+    header {
+      font-size: 2rem;
+    }
+  }
   
