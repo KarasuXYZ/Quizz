@@ -178,13 +178,17 @@ function checkAnswer(index) {
   setTimeout(loadQuestion, 1500);
 }
 
+
 // Ekran końcowy – wynik wyświetlany jest, a za 5 sekund następuje odświeżenie strony
 function endGame() {
-  quizContainer.innerHTML = score >= TOTAL_QUESTIONS / 2
-    ? "<h2 class='win'>Wygrałeś/aś! (" + score + "/" + TOTAL_QUESTIONS + ")</h2>"
-    : "<h2 class='lose'>Przegrałeś/aś! (" + score + "/" + TOTAL_QUESTIONS + ")</h2>";
-    
-  setTimeout(() => { location.reload(); }, 5000);
-}
+    if (score === TOTAL_QUESTIONS) {
+      quizContainer.innerHTML = "<h2 class='win'>Wygrałeś/aś! (" + score + "/" + TOTAL_QUESTIONS + ")</h2>";
+    } else {
+      quizContainer.innerHTML = "<h2 class='lose'>Przegrałeś/aś! (" + score + "/" + TOTAL_QUESTIONS + ")</h2>";
+    }
+      
+    setTimeout(() => { location.reload(); }, 5000);
+  }
+  
 
 startButton.addEventListener("click", startQuiz);
