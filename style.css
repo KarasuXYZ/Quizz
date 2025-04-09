@@ -194,4 +194,39 @@ footer {
       font-size: 2rem;
     }
   }
+  @media (max-height: 1500px) {
+    header {
+      font-size: 2rem;
+      margin-top: 10px;
+      margin-bottom: 3%;
+    }
+    
+    #startButton {
+      font-size: 1.2rem;
+      padding: 15px 30px;
+      margin-bottom: 15px;
+    }
+    
+    #questionText {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    img {
+      height: 400px;
+      width: 500px;
+      margin-bottom: 15px;
+    }
+    
+    .answerButton {
+      font-size: 1.2rem;
+      padding: 15px 30px;
+      margin: 20px;
+    }
+    
+    footer p {
+      font-size: 1rem;
+      padding: 5px;
+    }
+  }
   
