@@ -3,72 +3,157 @@ const quizContainer = document.getElementById("quizContainer");
 const questionText = document.getElementById("questionText");
 const questionImage = document.getElementById("questionImage");
 const answerButtons = document.querySelectorAll(".answerButton");
+
 let score = 0; 
 let questionCount = 0; 
 
-// Nowe, humorystyczne pytania dla dzieci z informatyki
+// 15 pytań z zakresu informatyki – każdy obiekt zawiera tekst pytania, obrazek (dla uproszczenia placeholder lub dedykowane zasoby),
+// tablicę z trzema opcjami oraz indeks poprawnej odpowiedzi.
 const questions = [
   { 
-    text: "Jaki element komputera nazywamy 'mózgiem'?", 
-    image: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Intel_Core_i7_Processor.png", 
-    answers: ["Procesor", "Monitor", "Klawiatura"], 
+    text: "Jaki element komputera nazywamy 'mózgiem'?",
+    image: "https://via.placeholder.com/600x500?text=Procesor",
+    answers: ["Procesor", "Monitor", "Klawiatura"],
     correct: 0 
   },
   { 
-    text: "Co to jest Ctrl+C?", 
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Keyboard_key_Ctrl.svg/1200px-Keyboard_key_Ctrl.svg.png", 
-    answers: ["Skrót do kopiowania", "Taniej herbaty", "Zamiana na supermoc"], 
+    text: "Co to jest Ctrl+C?",
+    image: "https://via.placeholder.com/600x500?text=Ctrl+C",
+    answers: ["Skrót do kopiowania", "Skrót do cięcia", "Skrót do wklejania"],
     correct: 0 
   },
   { 
-    text: "Co robi 'bug' w programie?", 
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/ENIAC.jpg/800px-ENIAC.jpg", 
-    answers: ["To błąd", "Prawdziwy robak w kodzie", "Zamienia kod w marchewkę"], 
+    text: "Co robi 'bug' w programie?",
+    image: "https://via.placeholder.com/600x500?text=Bug",
+    answers: ["To błąd", "To dekoracyjny dodatek", "To nowa funkcja"],
     correct: 0 
   },
   { 
-    text: "Czym jest klawiatura?", 
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Computer_keyboard_US.svg/1200px-Computer_keyboard_US.svg.png", 
-    answers: ["Urządzenie do pisania", "Nowy rodzaj gitary", "Przeróbka na konsolę do gier"], 
+    text: "Czym jest klawiatura?",
+    image: "Images/Klawiatura.png",
+    answers: ["Urządzenie do pisania", "Instrument muzyczny", "Panel sterowania"],
     correct: 0 
   },
   { 
-    text: "Dlaczego programiści robią kopie zapasowe?", 
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Backup_icon.svg/1200px-Backup_icon.svg.png", 
-    answers: ["Bo komputer może się zepsuć", "Bo lubią niespodzianki", "Bo raz zgubili projekt i płakali"], 
+    text: "Dlaczego programiści robią kopie zapasowe?",
+    image: "Images/backup.jpg",
+    answers: ["Bo komputer może się zepsuć", "Bo lubią niespodzianki", "Bo raz zgubili projekt"],
+    correct: 0 
+  },
+  { 
+    text: "Który program służy do edycji tekstu?",
+    image: "https://via.placeholder.com/600x500?text=Word",
+    answers: ["Word", "Excel", "PowerPoint"],
+    correct: 0 
+  },
+  { 
+    text: "Co to jest RAM?",
+    image: "https://via.placeholder.com/600x500?text=RAM",
+    answers: ["Pamięć operacyjna", "Rodzaj dysku", "Karta graficzna"],
+    correct: 0 
+  },
+  { 
+    text: "Co oznacza skrót HTML?",
+    image: "https://via.placeholder.com/600x500?text=HTML",
+    answers: ["HyperText Markup Language", "Hyper Transfer Mail Language", "HighText Machine Language"],
+    correct: 0 
+  },
+  { 
+    text: "Jaki program służy do tworzenia stron internetowych?",
+    image: "https://via.placeholder.com/600x500?text=Visual+Studio+Code",
+    answers: ["Visual Studio Code", "Notepad", "Excel"],
+    correct: 0 
+  },
+  { 
+    text: "Czym jest firewall?",
+    image: "https://via.placeholder.com/600x500?text=Firewall",
+    answers: ["Ochroną sieci", "Nowym wirusem", "Programem do edycji zdjęć"],
+    correct: 0 
+  },
+  { 
+    text: "Co oznacza debugowanie?",
+    image: "https://via.placeholder.com/600x500?text=Debugowanie",
+    answers: ["Usuwanie błędów z kodu", "Pisanie dokumentacji", "Aktualizację systemu"],
+    correct: 0 
+  },
+  { 
+    text: "Jaki system operacyjny produkuje Apple?",
+    image: "https://via.placeholder.com/600x500?text=macOS",
+    answers: ["macOS", "Windows", "Linux"],
+    correct: 0 
+  },
+  { 
+    text: "Która firma produkuje procesory Ryzen?",
+    image: "https://via.placeholder.com/600x500?text=AMD",
+    answers: ["AMD", "Intel", "Nvidia"],
+    correct: 0 
+  },
+  { 
+    text: "Jaki protokół służy do przesyłania stron internetowych?",
+    image: "https://via.placeholder.com/600x500?text=HTTP",
+    answers: ["HTTP", "FTP", "SMTP"],
+    correct: 0 
+  },
+  { 
+    text: "Co to jest GPU?",
+    image: "https://via.placeholder.com/600x500?text=GPU",
+    answers: ["Karta graficzna", "Pamięć RAM", "Procesor"],
     correct: 0 
   }
 ];
+
+// Quiz składa się z 15 pytań (wszystkie pytania wyświetlane są raz, kolejność jest losowa)
+const TOTAL_QUESTIONS = 3;
+let remainingQuestions = []; // kopia pytań do losowania
+
+// Funkcja mieszająca tablicę – używana przy losowaniu pytań i mieszaniu odpowiedzi
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 // Start quizu
 function startQuiz() {
   startButton.style.display = "none";
   quizContainer.classList.remove("conteiner-hidden");
   quizContainer.classList.add("conteiner-visible");
-  score = 0; 
-  questionCount = 0; 
+  score = 0;
+  questionCount = 0;
+  // Mieszamy całą tablicę pytań i kopiujemy ją do remainingQuestions
+  remainingQuestions = shuffleArray([...questions]);
   loadQuestion();
 }
 
-// Ładowanie pytania – przed wstawieniem ustawiamy odpowiednim przyciskom czyste tło
+// Ładowanie pytania – mieszamy kolejność odpowiedzi przed wyświetleniem
 function loadQuestion() {
-  if (questionCount >= 3) {
+  if (questionCount >= TOTAL_QUESTIONS || remainingQuestions.length === 0) {
     endGame();
     return;
   }
   
-  // Losowanie pytania (można zmienić na sekwencyjne)
-  const randomIndex = Math.floor(Math.random() * questions.length);
-  const question = questions[randomIndex];
+  // Pobieramy pierwsze pytanie z pozostałych i usuwamy je, żeby się nie powtórzyło
+  const currentQuestion = remainingQuestions.shift();
   
-  questionText.innerText = question.text;
-  questionImage.src = question.image;
+  questionText.innerText = currentQuestion.text;
+  questionImage.src = currentQuestion.image;
   
-  // Dla każdego przycisku odpowiedzi: ustaw tekst, usuń poprzednie klasy oraz odblokuj przycisk
+  // Tworzymy tablicę obiektów z odpowiedziami i oznaczamy, która jest poprawna
+  let answerOptions = currentQuestion.answers.map((ans, idx) => ({
+    text: ans,
+    correct: idx === currentQuestion.correct
+  }));
+  
+  // Mieszamy kolejność odpowiedzi
+  answerOptions = shuffleArray(answerOptions);
+  
+  // Wstawiamy odpowiedzi do przycisków
   answerButtons.forEach((button, index) => {
-    button.innerText = question.answers[index];
+    button.innerText = answerOptions[index].text;
     button.classList.remove("correct", "wrong");
-    button.setAttribute("data-correct", index === question.correct);
+    button.setAttribute("data-correct", answerOptions[index].correct);
     button.style.backgroundColor = "";
     button.disabled = false;
   });
@@ -93,11 +178,11 @@ function checkAnswer(index) {
   setTimeout(loadQuestion, 1500);
 }
 
-// Ekran końcowy
+// Ekran końcowy – wynik wyświetlany jest, a za 5 sekund następuje odświeżenie strony
 function endGame() {
-  quizContainer.innerHTML = score === 3 
-    ? "<h2 class='win'>Wygrałeś/aś!</h2>" 
-    : `<h2 class='lose'>Przegrałeś/aś! (${score}/3)</h2>`;
+  quizContainer.innerHTML = score >= TOTAL_QUESTIONS / 2
+    ? "<h2 class='win'>Wygrałeś/aś! (" + score + "/" + TOTAL_QUESTIONS + ")</h2>"
+    : "<h2 class='lose'>Przegrałeś/aś! (" + score + "/" + TOTAL_QUESTIONS + ")</h2>";
     
   setTimeout(() => { location.reload(); }, 5000);
 }

@@ -1,15 +1,20 @@
 :root {
-    --color-gradient1: #f9920b;
-    --color-gradient2: #f9b909;
-    --color-gradient3: #f5980c;
-    --color-gradient4: #f7a307;
+    /* Nowa paleta kolorystyczna: ciemny niebieski, ciemny fiolet i czerń */
+    --color-gradient1: #0d1b2a; /* ciemny niebieski */
+    --color-gradient2: #1b263b; /* nieco jaśniejszy odcień niebieskiego */
+    --color-gradient3: #3a0ca3; /* ciemny fiolet */
+    --color-gradient4: #000000; /* czarny */
     
-    --color-answerGradientStart: #ff4500;
-    --color-answerGradientEnd: #ff8c00;
-    --color-neonCorrectStart: #00ff00;
-    --color-neonCorrectEnd: #008000;
-    --color-neonWrongStart: #ff0000;
-    --color-neonWrongEnd: #8b0000;
+    /* Kolory przycisków odpowiedzi – neonowe odcienie */
+    --color-answerGradientStart: #00e0ff; /* jasny neonowy błękit */
+    --color-answerGradientEnd: #0099cc;   /* ciemniejszy neonowy błękit */
+    
+    --color-neonCorrectStart: #00ff00; /* neonowa zieleń */
+    --color-neonCorrectEnd: #008000;   /* ciemna zieleń */
+    
+    --color-neonWrongStart: #ff00ff;   /* neonowy róż */
+    --color-neonWrongEnd: #8b008b;     /* ciemny róż */
+    
     --color-white: #FFFFFF;
     --color-black: #000000;
   }
@@ -18,6 +23,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background: linear-gradient(120deg, var(--color-gradient1), var(--color-gradient2), var(--color-gradient3), var(--color-gradient4));
     animation: gradientAnimation 25s ease infinite;
     background-size: 550% 550%;
@@ -25,7 +31,6 @@
     font-family: 'Courier New', Courier, monospace;
     overflow: hidden;
     height: 100vh;
-    align-items: center;
   }
   
   @keyframes gradientAnimation {
@@ -54,12 +59,12 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 15px rgba(255, 69, 0, 0.8);
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.8);
     margin-bottom: 20px;
   }
   
   #startButton:hover {
-    box-shadow: 0 0 30px rgba(255, 69, 0, 1);
+    box-shadow: 0 0 30px rgba(0, 224, 255, 1);
   }
   
   /* Ukryty kontener z quizem */
@@ -76,9 +81,10 @@
   
   /* Obrazek pytania */
   img {
-    height: 450px;
-    width: 450px;
+    height: 500px;
+    width: 600px;
     margin-bottom: 20px;
+    border-radius: 15px;
   }
   
   /* Ogólna stylizacja przycisków */
@@ -113,7 +119,7 @@
     cursor: pointer;
     transition: 0.3s ease-in-out;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.8);
     animation: neonGlow 1.5s ease-in-out infinite;
   }
   
@@ -153,5 +159,20 @@
   
   .lose {
     background-color: red;
+  }
+  
+  /* --- Footer --- */
+footer {
+    margin-top: auto;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  footer p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--color-white);
   }
   
