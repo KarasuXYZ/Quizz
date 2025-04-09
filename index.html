@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizz z Informatyki!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>Quizz z Informatyki!</header>
+  <button id="startButton">Rozpocznij Quizz</button>
+  <div id="quizContainer" class="conteiner-hidden">
+    <img id="questionImage" src="" alt="Pytanie">
+    <p id="questionText"></p>
+    <div class="questions">
+      <button class="answerButton" onclick="checkAnswer(0)"></button>
+      <button class="answerButton" onclick="checkAnswer(1)"></button>
+      <button class="answerButton" onclick="checkAnswer(2)"></button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

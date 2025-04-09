@@ -1,0 +1,157 @@
+:root {
+    --color-gradient1: #f9920b;
+    --color-gradient2: #f9b909;
+    --color-gradient3: #f5980c;
+    --color-gradient4: #f7a307;
+    
+    --color-answerGradientStart: #ff4500;
+    --color-answerGradientEnd: #ff8c00;
+    --color-neonCorrectStart: #00ff00;
+    --color-neonCorrectEnd: #008000;
+    --color-neonWrongStart: #ff0000;
+    --color-neonWrongEnd: #8b0000;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(120deg, var(--color-gradient1), var(--color-gradient2), var(--color-gradient3), var(--color-gradient4));
+    animation: gradientAnimation 25s ease infinite;
+    background-size: 550% 550%;
+    color: var(--color-white);
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    height: 100vh;
+    align-items: center;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  
+  /* Stylizacja przycisku startowego */
+  #startButton {
+    background: linear-gradient(45deg, var(--color-answerGradientStart), var(--color-answerGradientEnd));
+    color: var(--color-white);
+    border: none;
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.8);
+    margin-bottom: 20px;
+  }
+  
+  #startButton:hover {
+    box-shadow: 0 0 30px rgba(255, 69, 0, 1);
+  }
+  
+  /* Ukryty kontener z quizem */
+  .conteiner-hidden {
+    display: none;
+  }
+  
+  /* Widoczny kontener quizu */
+  .conteiner-visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Obrazek pytania */
+  img {
+    height: 450px;
+    width: 450px;
+    margin-bottom: 20px;
+  }
+  
+  /* Ogólna stylizacja przycisków */
+  button {
+    padding: 20px 12px;
+    margin: 30px;
+    border: none;
+    transition: 0.3s ease-in-out;
+    outline: none;
+  }
+  
+  /* Efekt klikania przycisku */
+  button:active {
+    box-shadow: 0 0 15px var(--color-white);
+  }
+  
+  /* Tekst pytania */
+  #questionText {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Stylizacja przycisków odpowiedzi z neonowym efektem */
+  .answerButton {
+    background: linear-gradient(45deg, var(--color-answerGradientStart), var(--color-answerGradientEnd));
+    color: var(--color-white);
+    font-size: 1.5rem;
+    padding: 20px 40px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+    animation: neonGlow 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes neonGlow {
+    0%, 100% {
+      box-shadow: 0 0 15px var(--color-answerGradientEnd);
+    }
+    50% {
+      box-shadow: 0 0 30px var(--color-answerGradientEnd);
+    }
+  }
+  
+  /* Efekt po wybraniu poprawnej odpowiedzi */
+  .correct {
+    background: linear-gradient(45deg, var(--color-neonCorrectStart), var(--color-neonCorrectEnd));
+    box-shadow: 0 0 30px var(--color-neonCorrectStart);
+  }
+  
+  /* Efekt po wybraniu błędnej odpowiedzi */
+  .wrong {
+    background: linear-gradient(45deg, var(--color-neonWrongStart), var(--color-neonWrongEnd));
+    box-shadow: 0 0 30px var(--color-neonWrongStart);
+  }
+  
+  /* Ekran końcowy */
+  .win, .lose {
+    padding: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+    box-shadow: 0 0 30px;
+    border-radius: 10px;
+  }
+  
+  .win {
+    background-color: green;
+  }
+  
+  .lose {
+    background-color: red;
+  }
+  
