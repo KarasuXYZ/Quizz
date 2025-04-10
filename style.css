@@ -195,7 +195,7 @@ footer {
       font-size: 2rem;
     }
   }
-    
+    /*
   @media (max-height: 1200px) {
     header {
       font-size: 2rem;
@@ -231,7 +231,7 @@ footer {
       padding: 5px;
     }
   }
-  
+  */
   @media (max-width: 500px) {
     body {
       font-size: 1rem;
