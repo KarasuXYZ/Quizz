@@ -49,18 +49,18 @@
     margin-bottom: 5%;
   }
   
-  /* Stylizacja przycisku startowego */
   #startButton {
     background: linear-gradient(45deg, var(--color-answerGradientStart), var(--color-answerGradientEnd));
     color: var(--color-white);
     border: none;
     border-radius: 10px;
-    padding: 20px 40px;
-    font-size: 1.5rem;
+    padding: 30px 60px; /* Zwiększenie rozmiaru przycisku */
+    font-size: 2rem; /* Zwiększenie rozmiaru tekstu */
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 15px rgba(0, 224, 255, 0.8);
-    margin-bottom: 20px;
+    margin-top: 40px; /* Powiększenie odstępu od góry */
+    margin-bottom: 60px; /* Powiększenie odstępu od dołu */
   }
   
   #startButton:hover {
