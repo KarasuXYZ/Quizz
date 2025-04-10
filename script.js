@@ -99,7 +99,7 @@ const questions = [
     image: "Images/GPU.png",
     answers: ["Karta graficzna", "Pamięć RAM", "Procesor"],
     correct: 0 
-  }
+  },
   { 
     text: "Co oznacza skrót SSD?",
     image: "Images/SSD.jpg",
