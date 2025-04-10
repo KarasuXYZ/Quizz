@@ -120,7 +120,7 @@ const questions = [
   },
   { 
     text: "Co to jest BIOS?",
-    image: "Images/BIOS.jpg",
+    image: "Images/Bios.jpg",
     answers: ["System startowy komputera", "Program edytujący tekst", "Rodzaj dysku twardego"],
     correct: 0 
   }
