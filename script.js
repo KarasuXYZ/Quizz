@@ -36,19 +36,19 @@ const questions = [
   },
   { 
     text: "Dlaczego programiści robią kopie zapasowe?",
-    image: "Images/backup.jpg",
+    image: "Images/Backup.jpg",
     answers: ["Bo komputer może się zepsuć", "Bo lubią niespodzianki", "Bo raz zgubili projekt"],
     correct: 0 
   },
   { 
     text: "Który program służy do edycji tekstu?",
-    image: "Images/word.png",
+    image: "Images/Word.png",
     answers: ["Word", "Excel", "PowerPoint"],
     correct: 0 
   },
   { 
     text: "Co to jest RAM?",
-    image: "Images/ram.png",
+    image: "Images/Ram.png",
     answers: ["Pamięć operacyjna", "Rodzaj dysku", "Karta graficzna"],
     correct: 0 
   },
@@ -78,7 +78,7 @@ const questions = [
   },
   { 
     text: "Jaki system operacyjny produkuje Apple?",
-    image: "Images/Aplle.png",
+    image: "Images/Apple.png",
     answers: ["macOS", "Windows", "Linux"],
     correct: 0 
   },
