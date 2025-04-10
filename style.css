@@ -195,7 +195,7 @@ footer {
       font-size: 2rem;
     }
   }
-  @media (max-height: 1500px) {
+  @media (max-height: 1200px) {
     header {
       font-size: 2rem;
       margin-top: 10px;
