@@ -11,20 +11,20 @@ let questionCount = 0;
 // tablicę z trzema opcjami oraz indeks poprawnej odpowiedzi.
 const questions = [
   { 
-    text: "Jaki element komputera nazywamy 'mózgiem'?",
-    image: "https://via.placeholder.com/600x500?text=Procesor",
+    text: "Co jest mógzgiem komputera?",
+    image: "Images/mózgpc.png",
     answers: ["Procesor", "Monitor", "Klawiatura"],
     correct: 0 
   },
   { 
     text: "Co to jest Ctrl+C?",
-    image: "https://via.placeholder.com/600x500?text=Ctrl+C",
+    image: "Images/control.png",
     answers: ["Skrót do kopiowania", "Skrót do cięcia", "Skrót do wklejania"],
     correct: 0 
   },
   { 
     text: "Co robi 'bug' w programie?",
-    image: "https://via.placeholder.com/600x500?text=Bug",
+    image: "Images/bug.png",
     answers: ["To błąd", "To dekoracyjny dodatek", "To nowa funkcja"],
     correct: 0 
   },
@@ -42,61 +42,61 @@ const questions = [
   },
   { 
     text: "Który program służy do edycji tekstu?",
-    image: "https://via.placeholder.com/600x500?text=Word",
+    image: "Images/word.png",
     answers: ["Word", "Excel", "PowerPoint"],
     correct: 0 
   },
   { 
     text: "Co to jest RAM?",
-    image: "https://via.placeholder.com/600x500?text=RAM",
+    image: "Images/ram.png",
     answers: ["Pamięć operacyjna", "Rodzaj dysku", "Karta graficzna"],
     correct: 0 
   },
   { 
     text: "Co oznacza skrót HTML?",
-    image: "https://via.placeholder.com/600x500?text=HTML",
+    image: "Images/HTML.png",
     answers: ["HyperText Markup Language", "Hyper Transfer Mail Language", "HighText Machine Language"],
     correct: 0 
   },
   { 
     text: "Jaki program służy do tworzenia stron internetowych?",
-    image: "https://via.placeholder.com/600x500?text=Visual+Studio+Code",
+    image: "Images/Program.png",
     answers: ["Visual Studio Code", "Notepad", "Excel"],
     correct: 0 
   },
   { 
     text: "Czym jest firewall?",
-    image: "https://via.placeholder.com/600x500?text=Firewall",
+    image: "Images/Firewall.png",
     answers: ["Ochroną sieci", "Nowym wirusem", "Programem do edycji zdjęć"],
     correct: 0 
   },
   { 
     text: "Co oznacza debugowanie?",
-    image: "https://via.placeholder.com/600x500?text=Debugowanie",
+    image: "Images/debugowanie.png",
     answers: ["Usuwanie błędów z kodu", "Pisanie dokumentacji", "Aktualizację systemu"],
     correct: 0 
   },
   { 
     text: "Jaki system operacyjny produkuje Apple?",
-    image: "https://via.placeholder.com/600x500?text=macOS",
+    image: "Images/Aplle.png",
     answers: ["macOS", "Windows", "Linux"],
     correct: 0 
   },
   { 
     text: "Która firma produkuje procesory Ryzen?",
-    image: "https://via.placeholder.com/600x500?text=AMD",
+    image: "Images/Ryzen.png",
     answers: ["AMD", "Intel", "Nvidia"],
     correct: 0 
   },
   { 
     text: "Jaki protokół służy do przesyłania stron internetowych?",
-    image: "https://via.placeholder.com/600x500?text=HTTP",
+    image: "Images/Protokół.png",
     answers: ["HTTP", "FTP", "SMTP"],
     correct: 0 
   },
   { 
     text: "Co to jest GPU?",
-    image: "https://via.placeholder.com/600x500?text=GPU",
+    image: "Images/GPU.png",
     answers: ["Karta graficzna", "Pamięć RAM", "Procesor"],
     correct: 0 
   }

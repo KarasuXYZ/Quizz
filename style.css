@@ -30,7 +30,7 @@
     color: var(--color-white);
     font-family: 'Courier New', Courier, monospace;
     overflow: hidden;
-    height: 100vh;
+    height: 90vh;
   }
   
   @keyframes gradientAnimation {
