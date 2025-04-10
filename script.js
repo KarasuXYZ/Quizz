@@ -100,6 +100,30 @@ const questions = [
     answers: ["Karta graficzna", "Pamięć RAM", "Procesor"],
     correct: 0 
   }
+  { 
+    text: "Co oznacza skrót SSD?",
+    image: "Images/SSD.jpg",
+    answers: ["Solid State Drive", "Software System Disk", "Super Speed Drive"],
+    correct: 0 
+  },
+  { 
+    text: "Co to jest IP?",
+    image: "Images/IP.png",
+    answers: ["Adres sieciowy", "Nazwa komputera", "Typ oprogramowania"],
+    correct: 0 
+  },
+  { 
+    text: "Do czego służy karta sieciowa?",
+    image: "Images/KartaSieciowa.jpg",
+    answers: ["Do łączenia się z siecią", "Do przetwarzania grafiki", "Do zapisywania danych"],
+    correct: 0 
+  },
+  { 
+    text: "Co to jest BIOS?",
+    image: "Images/BIOS.jpg",
+    answers: ["System startowy komputera", "Program edytujący tekst", "Rodzaj dysku twardego"],
+    correct: 0 
+  }
 ];
 
 // Quiz składa się z 15 pytań (wszystkie pytania wyświetlane są raz, kolejność jest losowa)
