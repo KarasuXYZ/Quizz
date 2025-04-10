@@ -59,7 +59,7 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 15px rgba(0, 224, 255, 0.8);
-    margin-top: 200px; /* Powiększenie odstępu od góry */
+    margin-top: 180px; /* Powiększenie odstępu od góry */
     margin-bottom: 60px; /* Powiększenie odstępu od dołu */
   }
   
@@ -175,7 +175,7 @@ footer {
     margin: 0;
     color: var(--color-white);
   }
-  /*
+  
   @media (max-width: 768px) {
     body {
       font-size: 1.2rem;
@@ -261,4 +261,4 @@ footer {
       padding: 3px;
     }
   }
-  */
+  
