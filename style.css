@@ -59,7 +59,7 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 15px rgba(0, 224, 255, 0.8);
-    margin-top: 100px; /* Powiększenie odstępu od góry */
+    margin-top: 230px; /* Powiększenie odstępu od góry */
     margin-bottom: 60px; /* Powiększenie odstępu od dołu */
   }
   

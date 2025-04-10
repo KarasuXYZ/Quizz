@@ -103,7 +103,7 @@ const questions = [
 ];
 
 // Quiz składa się z 15 pytań (wszystkie pytania wyświetlane są raz, kolejność jest losowa)
-const TOTAL_QUESTIONS = 3;
+const TOTAL_QUESTIONS = 4;
 let remainingQuestions = []; // kopia pytań do losowania
 
 // Funkcja mieszająca tablicę – używana przy losowaniu pytań i mieszaniu odpowiedzi
